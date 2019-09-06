@@ -1,3 +1,3 @@
 # vue-template-notas
 Template par aplicación de notas con Vue, Vuetify, Vuex
-![Image description](https://drive.google.com/open?id=1_XMDGffKRsL3sRU3U2D6yR101xEcG55j)
+![Image description](https://raw.githubusercontent.com/Roderick777/vue-template-notas/master/noteroo.png?token=AJH3FYLPJVQNOZPYEENP54S5OFK4Y)

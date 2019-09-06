@@ -3,7 +3,7 @@
     <v-app-bar app clipped-left>
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
         <span class="title ml-3 mr-5">Note<span class="font-weight-light">Roo</span></span>
-        <v-text-field solo-inverted flat hide-details label="Search" prepend-inner-icon="mdi-magnify"></v-text-field>
+        <v-text-field solo-inverted flat hide-details label="Buscar" prepend-inner-icon="mdi-magnify"></v-text-field>
         <div class="flex-grow-1"></div>
     </v-app-bar>
 
@@ -51,20 +51,20 @@ export default {
     data: () => ({
       drawer: null,
       items: [
-        { icon: 'mdi-lightbulb-outline', text: 'Notes' },
-        { icon: 'mdi-gesture-tap', text: 'Reminders' },
+        { icon: 'mdi-lightbulb-outline', text: 'Notas' },
+        { icon: 'mdi-gesture-tap', text: 'Recordatorios' },
         { divider: true },
-        { heading: 'Labels' },
-        { icon: 'mdi-add', text: 'Create new label' },
+        { heading: 'Etiquetas' },
+        { icon: 'mdi-add', text: 'Crer nueva etiqueta' },
         { divider: true },
-        { icon: 'mdi-package-down', text: 'Archive' },
-        { icon: 'mdi-delete-outline', text: 'Trash' },
+        { icon: 'mdi-package-down', text: 'Archivo' },
+        { icon: 'mdi-delete-outline', text: 'Papelera' },
         { divider: true },
-        { icon: 'mdi-settings', text: 'Settings' },
-        { icon: 'mdi-message', text: 'Trash' },
-        { icon: 'mdi-help', text: 'Help' },
-        { icon: 'mdi-cellphone-link', text: 'App downloads' },
-        { icon: 'mdi-keyboard-outline', text: 'Keyboard shortcuts' },
+        { icon: 'mdi-settings', text: 'Ajustes' },
+        { icon: 'mdi-message', text: 'Mensaje' },
+        { icon: 'mdi-help', text: 'Ayuda' },
+        { icon: 'mdi-cellphone-link', text: 'Descargas' },
+        { icon: 'mdi-keyboard-outline', text: 'Atajos' },
       ],
     }),
     methods: {
