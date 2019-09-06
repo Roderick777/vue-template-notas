@@ -3,10 +3,10 @@ node_modules
 /dist
 
 # local env files
-.env.local
+.env.lcd ..ocal
 .env.*.local
 
-# Log files
+# Log filesol
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
