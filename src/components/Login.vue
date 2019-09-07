@@ -4,9 +4,9 @@
         v-card-text 
             v-text-field(label="Usuario", v-model="usuario")
             v-text-field(label="Password", type="password", v-model="password")
-            v-btn.btn_login(color="success", rounded) Ingresar
-            v-btn.btn_login(color="success", rounded) Olvidaste tu contraseña 
-            v-btn.btn_login(color="success", rounded) Crear cuenta 
+            v-btn.btn_login(color="primary", rounded) Ingresar
+            v-btn.btn_login(text, rounded) Olvidaste tu contraseña 
+            v-btn.btn_login(rounded) Crear cuenta 
 </template>
 
 <script>
