@@ -1,6 +1,5 @@
 
 <template>
-    <!-- <v-container fluid class="fill-height"> -->
     <v-container fluid>
         <v-layout wrap>
             <v-flex xs12 sm12 md6 lg4 xl3 v-for="(not, i) in notas" :key="`nota_${i}`">
