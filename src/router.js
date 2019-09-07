@@ -13,6 +13,11 @@ export default new Router({
       component: () => import ('./views/Notas.vue')
     },
     {
+      path: '/componentes',
+      name: 'componentes',
+      component: () => import ('./views/Componentes.vue')
+    },
+    {
       path: '/calendario',
       name: 'calendario',
       component: () => import ('./views/Calendario.vue')

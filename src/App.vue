@@ -1,47 +1,31 @@
-<template>
-    <v-app id="keep">
-    <v-app-bar app clipped-left>
-        <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-        <span class="title ml-3 mr-5">Note<span class="font-weight-light">Roo</span></span>
-        <v-text-field solo-inverted flat hide-details label="Buscar" prepend-inner-icon="mdi-magnify"></v-text-field>
-        <div class="flex-grow-1"></div>
-    </v-app-bar>
+<template lang="pug">
+    v-app#keep
+        v-app-bar(app, clipped-left)
+            v-app-bar-nav-icon(@click="drawer = !drawer")
+            span.title.ml-3.mr-5 Note 
+                span.font-weight-light Roo
+            v-text-field(solo-inverted, flat, hide-details, label="Buscar", prepend-inner-icon="mdi-magnify")
+            div.flex-grow-1
 
-    <v-navigation-drawer v-model="drawer" app clipped >
-        <v-list dense>
-            <v-btn rounded color="pink" style="width: calc(100% - 10px); margin: 5px;"  @click="modoTema()">Cambiar Tema</v-btn>
-            <template v-for="(item, i) in items">
-                <v-row v-if="item.heading" :key="i" align="center">
-                    <v-col cols="6">
-                        <v-subheader v-if="item.heading">
-                            {{ item.heading }}
-                        </v-subheader>
-                    </v-col>
-                    <v-col cols="6" class="text-right">
-                        <v-btn small text>edit</v-btn>
-                    </v-col>
-                </v-row>
-                <v-divider v-else-if="item.divider" :key="i" dark class="my-4"></v-divider>
-                <v-list-item v-else :key="i">
-                    <v-list-item-action>
-                        <v-icon color="blue">{{ item.icon }}</v-icon>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                        <v-list-item-title>
-                            
-                            <router-link :to="item.enlace" style="text-decoration: none;">{{ item.text }} </router-link>
-                        </v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>
-            </template>
-        </v-list>
-    </v-navigation-drawer>
-
-    <v-content>
-        <router-view/>
-    </v-content>
-            <NavegadorPie></NavegadorPie>
-  </v-app>
+        v-navigation-drawer(v-model="drawer", app, clipped)
+            v-list(dense)
+                v-btn(rounded, color="pink", style="width: calc(100% - 10px); margin: 5px;",  @click="modoTema()") Cambiar Tema
+                template(v-for="(item, i) in items")
+                    v-row(v-if="item.heading", :key="i" align="center")
+                        v-col(cols="6")
+                            v-subheader(v-if="item.heading") {{ item.heading }}
+                        v-col.text-right(cols="6")
+                            v-btn(small, text) edit
+                    v-divider(v-else-if="item.divider", :key="i", dark, class="my-4")
+                    v-list-item(v-else, :key="i")
+                        v-list-item-action
+                            v-icon(color="blue") {{ item.icon }}
+                        v-list-item-content
+                            v-list-item-title
+                                router-link(:to="item.enlace", style="text-decoration: none;") {{ item.text }}
+        v-content
+            router-view
+        NavegadorPie
 </template>
 
 <script>
@@ -56,6 +40,7 @@ export default {
     data: () => ({
       drawer: null,
       items: [
+        { icon: 'mdi-apps', enlace: '/componentes', text: 'Componentes' },
         { icon: 'mdi-lightbulb-outline', enlace: '/', text: 'Notas' },
         { icon: 'mdi-gesture-tap', enlace: '/calendario', text: 'Recordatorios' },
         { divider: true },
@@ -66,10 +51,8 @@ export default {
         { icon: 'mdi-delete-outline', enlace: '/', text: 'Papelera' },
         { divider: true },
         { icon: 'mdi-settings', enlace: '/', text: 'Ajustes' },
-        { icon: 'mdi-message', enlace: '/', text: 'Mensaje' },
         { icon: 'mdi-help', enlace: '/', text: 'Ayuda' },
         { icon: 'mdi-cellphone-link', enlace: '/', text: 'Descargas' },
-        { icon: 'mdi-keyboard-outline', enlace: '/', text: 'Atajos' },
       ],
     }),
     methods: {
