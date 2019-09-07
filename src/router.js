@@ -4,13 +4,18 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  mode: process.env.CORDOVA_PLATFORM ? 'hash' : 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
       name: 'notas',
       component: () => import ('./views/Notas.vue')
+    },
+    {
+      path: '/calendario',
+      name: 'calendario',
+      component: () => import ('./views/Calendario.vue')
     }
   ]
 })

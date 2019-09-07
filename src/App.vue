@@ -9,7 +9,6 @@
 
     <v-navigation-drawer v-model="drawer" app clipped >
         <v-list dense>
-        
             <v-btn rounded color="pink" style="width: calc(100% - 10px); margin: 5px;"  @click="modoTema()">Cambiar Tema</v-btn>
             <template v-for="(item, i) in items">
                 <v-row v-if="item.heading" :key="i" align="center">
@@ -29,7 +28,8 @@
                     </v-list-item-action>
                     <v-list-item-content>
                         <v-list-item-title>
-                            {{ item.text }}
+                            
+                            <router-link :to="item.enlace" style="text-decoration: none;">{{ item.text }} </router-link>
                         </v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
@@ -40,31 +40,36 @@
     <v-content>
         <router-view/>
     </v-content>
+            <NavegadorPie></NavegadorPie>
   </v-app>
 </template>
 
 <script>
+import NavegadorPie from '../src/components/NavegadorPie'
 export default {
     created(){
         this.$vuetify.theme.dark = true  
     },
+    components:{
+        NavegadorPie
+    },
     data: () => ({
       drawer: null,
       items: [
-        { icon: 'mdi-lightbulb-outline', text: 'Notas' },
-        { icon: 'mdi-gesture-tap', text: 'Recordatorios' },
+        { icon: 'mdi-lightbulb-outline', enlace: '/', text: 'Notas' },
+        { icon: 'mdi-gesture-tap', enlace: '/calendario', text: 'Recordatorios' },
         { divider: true },
         { heading: 'Etiquetas' },
-        { icon: 'mdi-add', text: 'Crer nueva etiqueta' },
+        { icon: 'mdi-add', enlace: '/', text: 'Crer nueva etiqueta' },
         { divider: true },
-        { icon: 'mdi-package-down', text: 'Archivo' },
-        { icon: 'mdi-delete-outline', text: 'Papelera' },
+        { icon: 'mdi-package-down', enlace: '/', text: 'Archivo' },
+        { icon: 'mdi-delete-outline', enlace: '/', text: 'Papelera' },
         { divider: true },
-        { icon: 'mdi-settings', text: 'Ajustes' },
-        { icon: 'mdi-message', text: 'Mensaje' },
-        { icon: 'mdi-help', text: 'Ayuda' },
-        { icon: 'mdi-cellphone-link', text: 'Descargas' },
-        { icon: 'mdi-keyboard-outline', text: 'Atajos' },
+        { icon: 'mdi-settings', enlace: '/', text: 'Ajustes' },
+        { icon: 'mdi-message', enlace: '/', text: 'Mensaje' },
+        { icon: 'mdi-help', enlace: '/', text: 'Ayuda' },
+        { icon: 'mdi-cellphone-link', enlace: '/', text: 'Descargas' },
+        { icon: 'mdi-keyboard-outline', enlace: '/', text: 'Atajos' },
       ],
     }),
     methods: {
